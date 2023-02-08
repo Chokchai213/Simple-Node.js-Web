@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Chokchai213/Simple-Node.js-Web/issues"
   },
-  "homepage": "https://github.com/Chokchai213/Simple-Node.js-Web#readme"
+  "homepage": "https://github.com/Chokchai213/Simple-Node.js-Web#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
