@@ -1,0 +1,19 @@
+{
+  "name": "simple-node.js-web",
+  "version": "1.0.0",
+  "description": "simple node js website using http api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chokchai213/Simple-Node.js-Web.git"
+  },
+  "author": "Chokchai213",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chokchai213/Simple-Node.js-Web/issues"
+  },
+  "homepage": "https://github.com/Chokchai213/Simple-Node.js-Web#readme"
+}
