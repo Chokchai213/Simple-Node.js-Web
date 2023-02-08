@@ -1,41 +1,26 @@
-const http = require('http');
-const fs = require('fs');
+//this server script is using Express to Render HTML
+const express = require('express');
+const path = require('path');
+const app = express();
+const router = express.Router();
 const port = 8080;
-const host = 'localhost';
 
-var app = http.createServer(function (req, res){
-    if(req.url==='/'||req.url===''){
-        console.log(req.url);
-        fs.readFile('index.html',function(err,data){
-            res.writeHead(200,{'Content-Type':'text/html'});
-            res.write(data);
-            return res.end();
-        });
-    }else if(req.url==='/about'){
-        console.log(req.url);
-        fs.readFile('about.html',function(err,data){
-            res.writeHead(200,{'Content-Type':'text/html'});
-            res.write(data);
-            return res.end();
-        });
-    }else if(req.url==='/contact-me'){
-        console.log(req.url);
-        fs.readFile('contact.html',function(err,data){
-            res.writeHead(200,{'Content-Type':'text/html'});
-            res.write(data);
-            return res.end();
-        });
-    }else{
-        console.log(req.url);
-        fs.readFile('404.html',function(err,data){
-            res.writeHead(200,{'Content-Type':'text/html'});
-            res.write(data);
-            return res.end();
-        });
+router.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/index.html'));
+})
+router.get('/about',function (req,res){
+    res.sendFile(path.join(__dirname+'/about.html'));
+})
+router.get('/contact-me',function (req,res){
+    res.sendFile(path.join(__dirname+'/contact.html'));
+})
+router.use((req,res,next)=>{
+    res.status(404).sendFile(__dirname+'/404.html');
+})
+app.use('/',router);
+app.listen(port,(err)=>{
+    if(err){
+        console.log(err);
     }
-});
-
-
-app.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
-});
+    console.log(`Server listening on PORT : `,port);
+})
